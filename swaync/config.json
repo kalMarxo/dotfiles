@@ -1,0 +1,28 @@
+{
+    "positionX": "right",
+    "positionY": "top",
+    "margin": 20,
+    "notificationPadding": 12,
+    "notificationSpacing": 8,
+    "layer": "overlay",
+    "keyboardShortcuts": true,
+    "control-center": {
+        "width": 380,
+        "height": 600,
+        "margin-top": 20,
+        "margin-right": 20,
+        "border-radius": 16,
+        "background-blur": 18
+    },
+    "notification": {
+        "border-radius": 14,
+        "timeout": 5000,
+        "icon-size": 42,
+        "default-timeout": 5000
+    },
+    "widgets": {
+        "mpris": true,
+        "buttons-grid": true,
+        "notifications": true
+    }
+}

@@ -1,0 +1,9 @@
+show=drun
+prompt=
+width=500
+height=400
+lines=10
+location=center
+allow_images=true
+gtk_dark=true
+insensitive=true

@@ -1,0 +1,127 @@
+// -*- mode: jsonc -*-
+{
+    "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 2, // Waybar height (to be removed for auto height)
+    // "width": 1350, // Waybar width
+    "spacing": 4, // Gaps between modules (4px)
+    "margin": 2,
+    // Choose the order of the modules
+    "modules-left": ["custom/power",
+                     "hyprland/workspaces"],
+    "modules-center": ["mpris", "custom/prev", "custom/playpause", "custom/next"],
+    
+    "modules-right": [
+        "tray",
+        "pulseaudio",
+        "battery",
+        "battery#bat2",
+        "clock",
+       
+       
+],
+    "exclusive": true,
+
+       
+    "hyprland/workspaces":{
+    "format": "{}",
+    "all-outputs": true,
+    "sort-by-number": true,
+     "show-special": false,
+     "show-empty": true,
+     "persistent-workspaces": {
+       "*": [1, 2, 3, 4, 5]
+     }
+    },
+
+    "mpris": {
+  "format": "{player_icon} {title} - {artist} {status_icon}",
+  "format-paused": "{player_icon}   {title} - {artist} {status_icon}",
+  "format-playing": "{player_icon}   {title} - {artist} {status_icon}",
+  "player-icons": {
+    "default": "",
+    "spotify": "",
+    "firefox": "",
+    "chromium": ""
+  },
+  "status-icons": {
+    "playing": "⏸",
+    "paused": "▶"
+  },
+  "on-click": "playerctl play-pause",
+  "on-click-right": "playerctl next",
+  "on-click-middle": "playerctl previous",
+  "max-length": 60,
+  "interval": 2,
+  "tooltip": true
+},
+  
+
+    "tray": {
+        // "icons": { 
+        //   "blueman": "bluetooth",
+        //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+        // }
+    },
+    "clock": {
+        // "timezone": "America/New_York",
+        "tooltip-format": "<big>{:%Y %B }</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%d/%m/%Y}"
+    },
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format":"{icon}  {capacity}%",
+        "format-full": "{icon}  {capacity}%",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", " ", " ", " ", " "]
+    },
+    "battery#bat2":{ 
+        "bat": "BAT2"
+    },
+  
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": "",
+        "performance": "",
+        "balanced": "",
+        "power-saver": "",
+      }
+    },
+  
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{icon} {format_source}",
+        "format-bluetooth": "{volume}% ",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": " ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol &"
+ 
+    },
+    "custom/power": {
+        "format" :"   ",
+        "on-click": "nwg-bar"
+   }
+  }
+  
+ 
+
+

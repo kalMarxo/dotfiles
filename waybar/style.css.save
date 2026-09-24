@@ -1,0 +1,236 @@
+* { font-family: "MesloLGS Nerd Font"; font-size: 14px; font-weight: 700; color: #eaeaea; border: none; margin: 0; padding: 0;
+}
+
+window#waybar {
+    background: transparent;
+    border: none; /* linha sutil ao redor */
+    margin: 0px 0px;
+    transition: all 0.3s ease;
+    min-height: 0px;
+}
+
+
+/* Bloco esquerdo e direito — cada um terá seu fundo próprio */
+.modules-left,
+.modules-right {
+    border: 2px solid rgba(0, 180, 255, 0.55);
+    background: rgba(0, 0, 0, 0.40); /* mesmo tom que tu já usava */
+    border-radius: 12px;
+    padding: 0px 15px;
+    min-height: 0px;
+    margin: 0px 0px;
+    box-shadow: 0 0 6px rgba(0, 180, 255, 0.15);
+    transition: all 0.3s ease;
+}
+
+/* Central vazio (pra manter espaço e separação visual) */
+.modules-center {
+    background: none;
+}
+
+/* Workspaces bonitinhos */
+#workspaces button {
+    padding: 0px 5px;
+    margin: 0px 1px;
+    border-radius: 10px;
+    background: transparent;
+    transition: all 0.2s ease;
+}
+
+#workspaces button.active {
+    background: rgba(255, 255, 255, 0.25);
+    
+}
+
+/* Hover com leve brilho */
+#workspaces button:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+#mpris {
+    color: #00bcd4; /* azul-ciano para combinar com a borda */
+    font-weight: 700;
+    font-size: 13px;
+    text-shadow: 0 0 6px rgba(0, 188, 212, 0.5);
+    padding: 0 10px;
+    border-radius: 8px;
+    background: rgba(0, 188, 212, 0.0);
+    transition: all 0.3s ease;
+}
+
+#mpris:hover {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+    background: rgba(0, 188, 212, 0.0);
+}
+
+#custom-prev,
+#custom-playpause,
+#custom-next {
+    color: #00bcd4;
+    font-size: 14px;
+    padding: 0 4px;
+    transition: all 0.2s ease;
+}
+
+#custom-prev:hover,
+#custom-playpause:hover,
+#custom-next:hover {
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.8);
+    
+}
+
+
+
+
+
+/* Padding para módulos */
+  
+#clock
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#mpd {
+   
+    color: #ff0000;
+    padding: 0 10px;         /* espaço horizontal */
+    margin: 0 2px;          /* margem */
+    min-height: 0px;       /* aumenta a altura mínima */
+    font-size: 12px;        /* ajusta tamanho do ícone/texto */ 
+}
+
+
+#window,
+#workspaces {
+    margin: 4px 4px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 30px;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 30px;
+}
+
+#clock {
+     color: #ffffff; /* tom mais claro que o dourado */
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.1);
+    font-weight: 800;
+    transition-property: background-color;
+    transition-duration: .5s;
+    padding:  0px;         /* espaço horizontal */
+    margin: 0 3px;          /* margem */
+    min-height: 0px;       /* aumenta a altura mínima */
+    font-size: 18px;        /* ajusta tamanho do ícone/texto */
+}
+
+#battery {
+           background-color: rgba(0, 0, 0, 0.0);
+    
+    color: #ffffff;
+    transition-property: background-color;
+    transition-duration: .5s;
+    padding: 0px 0px;         /* espaço horizontal */
+    margin: 0px 2px;          /* margem */
+    min-height: 18px;       /* aumenta a altura mínima */
+    font-size: 14px;        /* ajusta tamanho do ícone/texto */
+}
+
+#battery.charging, #battery.plugged {
+
+    color: #ff0000;
+    background-color: rgba(250, 0, 0, 0.0);
+    padding: 0 0px;         /* espaço horizontal */
+    margin: 0px 3px;          /* margem */
+    min-height: 18px;       /* aumenta a altura mínima */
+    font-size: 14px;        /* ajusta tamanho do ícone/texto */
+}
+
+@keyframes blink {
+    to {
+        background-color: #ff0000;
+        color: #000000;
+    }
+}
+
+/* Using steps() instead of linear as a timing function to limit cpu usage */
+#battery.critical:not(.charging) {
+    background-color: #f53c3c;
+    padding: 0 2px;         /* espaço horizontal */
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#pulseaudio {
+       background-color: rgba(0, 0, 0, 0.0);
+    color: #ffffff;
+    transition-property: background-color;
+    transition-duration: .5s;
+    padding: 0 6px;         /* espaço horizontal */
+    margin: 0 0px;          /* margem */
+    min-height: 18px;       /* aumenta a altura mínima */
+    font-size: 14px;        /* ajusta tamanho do ícone/texto */
+}
+
+
+
+/* TRAY - mais fino, sem usar max-height que quebre a inicialização */
+#tray {
+    color: #4B0082;
+    background: rgba(255, 255, 255, 0.0); /* leve translúcido */
+    padding: 0px 0px;           /* pouco padding vertical para deixar fino */
+    margin: 0px 2px;                  /* remover margens externas que aumentam o bloco */
+    -gtk-icon-effect: none;
+    
+}
+
+/* filhos do tray: sem margens grandes, usar gap no container */
+#tray > * {
+    min-width: 0px;
+    min-height: 0px;
+    padding: 0;                 /* remover padding interno dos wrappers */
+    margin: 0;                  /* removido margin: 10px que inchava o fundo */
+
+   
+}
+
+/* aparência de ícones inativos */
+#tray > .passive {
+    -gtk-icon-effect: none;
+    opacity: 1.0;
+    background: rgba(255, 255, 255, 1.0);
+    border-radius: 4px;
+    padding: 0px;               /* pequeno padding só pra ter clique confortável */
+    margin-left: 10px;
+}
+
+/* atenção (badge) */
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 6px;
+    padding: 0px 0px;
+}
+
+
+

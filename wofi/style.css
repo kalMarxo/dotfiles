@@ -1,0 +1,31 @@
+window {
+    margin: 2;
+    padding: 0px;
+    border: none;
+    background-color: rgba(30, 30, 30, 0.7);
+    border-radius: 10px;
+    border: 2px solid #00aaff;   /* borda azul neon */
+
+}
+
+#input {
+    margin-bottom: 15px;
+    padding: 2px;
+    font-size: 16px;
+    background-color: rgba(40, 40, 40, 0.0);
+    color: #00d1ff;               /* texto azul neon */
+    border-radius: 10px;
+}
+
+#entry {
+    color: #00e3ff;
+    padding: 10px;
+    border-radius: 70px;
+}
+
+#entry:selected {
+    background: rgba(0,150,255,1.0);  /* hover azul forte */
+    box-shadow: 0 0 4px rgba(0,150,255,0.0); /* brilho azul */
+    border-radius: 10px;
+    color: #00e3ff;
+}

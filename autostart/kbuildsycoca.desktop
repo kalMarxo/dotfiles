@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Exec=sh -c "XDG_MENU_PREFIX=arch- kbuildsycoca6"
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name=KBuildSyCoca Fix
